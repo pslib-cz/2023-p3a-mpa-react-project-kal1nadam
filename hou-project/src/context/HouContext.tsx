@@ -16,8 +16,9 @@ export type HouAction =
   | { type: HouActionType.HUNGER_CHANGE; payload: {amount: number}}
   | { type: HouActionType.HEALTH_CHANGE}
   | { type: HouActionType.HAPPINESS_CHANGE; payload: {amount: number} }
-  | { type: HouActionType.ENERGY_CHANGE }
-  | { type: HouActionType.DECREASE_STATS_BASED_ON_TIME; payload: {hoursElapsed: number}};
+  | { type: HouActionType.ENERGY_CHANGE; payload: {amount: number}}
+  | { type: HouActionType.DECREASE_STATS_BASED_ON_TIME; payload: {hoursElapsed: number}}
+  | { type: HouActionType.TOGGLE_SLEEP; payload: {isSleeping: boolean}};
 
 
 // All stats are full by default
@@ -27,6 +28,9 @@ const defaultState: Hou = {
   hunger: 100,
   happiness: 100,
   lastUpdate: Date.now(), // Include a timestamp in the default state
+
+  isSleeping: false,
+  lastSleepTime: null,
 };
 
 
@@ -91,6 +95,41 @@ export const HouProvider = ({ children }: { children: ReactNode }) => {
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, []);
+
+
+
+  //#region Sleep
+
+  // Load sleep data from local storage
+  useEffect(() => {
+    const storedSleepData = localStorage.getItem('houSleeping');
+    if (storedSleepData) {
+        const { sleeping, timestamp } = JSON.parse(storedSleepData);
+        const currentTime = Date.now();
+        const minutesElapsed = (currentTime - timestamp) / (1000 * 60);
+        const energyPoints = Math.floor(minutesElapsed / 5);
+
+        if (sleeping) {
+            dispatch({ type: HouActionType.TOGGLE_SLEEP, payload: {isSleeping: sleeping} });
+            dispatch({ type: HouActionType.ENERGY_CHANGE, payload: {amount: energyPoints} });
+        }
+    }
+  }, []);
+
+
+  // Interval for when the app is open
+  useEffect(() => {
+    if (state.isSleeping) {
+        const interval = setInterval(() => {
+            dispatch({ type: HouActionType.ENERGY_CHANGE, payload :{amount: 1} });
+        }, 300000); // Increase energy every 5 minutes
+        return () => clearInterval(interval);
+    }
+  }, [state.isSleeping]);
+
+  //#endregion
+
+
 
 
 

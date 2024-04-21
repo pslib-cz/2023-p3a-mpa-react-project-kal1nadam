@@ -37,4 +37,15 @@
   .room-description {
     margin-top: 10px;
   }
+
+  .dim {
+    background-color: rgba(0, 0, 0, 0.7); /* Dim the room */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 500; /* High enough to cover the content */
+}
+
   

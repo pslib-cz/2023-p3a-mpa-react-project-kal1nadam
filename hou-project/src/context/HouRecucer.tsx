@@ -19,17 +19,13 @@ function houReducer(state: Hou, action: HouAction): Hou {
           ...state,
           happiness: Math.min(state.happiness + action.payload.amount, 100),
         };
+      case HouActionType.TOGGLE_SLEEP:
+        return { ...state, isSleeping: action.payload.isSleeping, lastSleepTime: Date.now() };
       case HouActionType.ENERGY_CHANGE:
         return {
           ...state,
-          energy: 100,
+          energy: Math.min(state.energy + action.payload.amount, 100),
         };
-      case HouActionType.TOGGLE_SLEEP:
-        return {
-        ...state,
-        isSleeping: !state.isSleeping,
-    lastSleepToggle: Date.now() // Track when sleep was toggled
-  };
       case HouActionType.DECREASE_STATS_BASED_ON_TIME:
         return {
           ...state,
