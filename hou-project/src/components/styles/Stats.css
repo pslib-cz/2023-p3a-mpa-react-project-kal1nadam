@@ -1,0 +1,8 @@
+.stats-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px; /* Adjust space between stat bars */
+    padding: 10px;
+    width:fit-content; /* Adjusts width based on content */
+  }
+  

@@ -1,0 +1,27 @@
+
+.stat-bar {
+    height: 50px;
+    width: 50px;
+}
+
+
+.stat-bar label {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+.bar-outer {
+    width: 100%; /* Set a fixed width */
+    height: 100%; /* Equal height to maintain square shape */
+    background-color: #eee;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column-reverse; /* Make the fill grow from bottom to top */
+    overflow: hidden;
+    border-radius: 8px;
+}
+  
+.bar-inner {
+    width: 100%; /* Take up full width of the container */
+    /* Height is controlled dynamically via inline styles */
+}

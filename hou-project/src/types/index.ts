@@ -3,10 +3,14 @@ export interface Hou {
     energy: number;
     hunger: number;
     happiness: number;
+    lastUpdate: number;
   }
   
-  export interface Food {
+  
+  export type Food = {
     name: string;
-    hunger: number; // How much this food item increases hunger
-  }
+    hungerValue: number;
+  };
+  
+  export type SelectFoodFunction = (food: Food) => void;
   

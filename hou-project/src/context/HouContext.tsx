@@ -2,12 +2,22 @@ import React, { createContext, ReactNode, useContext, useDeferredValue, useEffec
 import { Food, Hou } from '../types';
 import houReducer from './HouRecucer';
 
+//create enum for the actions
+export enum HouActionType {
+  HUNGER_CHANGE = 'hunger_change',
+  HEALTH_CHANGE = 'health_change',
+  HAPPINESS_CHANGE = 'happiness_change',
+  ENERGY_CHANGE = 'energy_change',
+  DECREASE_STATS_BASED_ON_TIME = 'decrease_stats_based_on_time',
+  TOGGLE_SLEEP = 'toggle_sleep',
+}
 
 export type HouAction =
-  | { type: 'feed'; amount: number }
-  | { type: 'shower' }
-  | { type: 'play'; amount: number }
-  | { type: 'sleep' };
+  | { type: HouActionType.HUNGER_CHANGE; payload: {amount: number}}
+  | { type: HouActionType.HEALTH_CHANGE}
+  | { type: HouActionType.HAPPINESS_CHANGE; payload: {amount: number} }
+  | { type: HouActionType.ENERGY_CHANGE }
+  | { type: HouActionType.DECREASE_STATS_BASED_ON_TIME; payload: {hoursElapsed: number}};
 
 
 // All stats are full by default
@@ -16,7 +26,9 @@ const defaultState: Hou = {
   energy: 100,
   hunger: 100,
   happiness: 100,
+  lastUpdate: Date.now(), // Include a timestamp in the default state
 };
+
 
 // Create the context
 export const HouContext = createContext<{
@@ -31,10 +43,55 @@ export const useHou = () => {
   return context;
 };
 
+// Load state from local storage or use default state
+const loadState = () => {
+  const storedState = localStorage.getItem('houState');
+  if (storedState) {
+    const parsedState = JSON.parse(storedState);
+    const currentTime = Date.now();
+    const timeElapsed = currentTime - parsedState.lastUpdate; // Time elapsed in milliseconds
+    const hoursElapsed = timeElapsed / (3600 * 1000); // Convert to hours
+
+    return { ...parsedState, hoursElapsed }; // Include elapsed time in the loaded state
+  }
+  return defaultState;
+};
 
 
 export const HouProvider = ({ children }: { children: ReactNode }) => {
-  const [state, dispatch] = useReducer(houReducer, defaultState);
+  // Call loadState here to initialize the state
+  const initialState = loadState();
+
+  // Initialize state from local storage or use default
+  const [state, dispatch] = useReducer(houReducer, initialState);
+
+  // Handle the loaded elapsed time immediately after mounting
+  useEffect(() => {
+    if (initialState.hoursElapsed !== undefined) {
+      // Dispatch action to adjust stats based on the elapsed time
+      dispatch({
+        type: HouActionType.DECREASE_STATS_BASED_ON_TIME,
+        payload: { hoursElapsed: initialState.hoursElapsed },
+      });
+    }
+    // Ensure this runs only once on component mount
+  }, []);
+
+
+  // Sync state to local storage on state changes
+  useEffect(() => {
+    // Update state with current timestamp before saving
+    localStorage.setItem('houState', JSON.stringify({ ...state, lastUpdate: Date.now() }));
+  }, [state]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch({ type: HouActionType.HUNGER_CHANGE, payload: { amount: -1 } });
+    }, 60000); // Decrease hunger every minute
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, []);
+
 
 
   return (
@@ -44,3 +101,5 @@ export const HouProvider = ({ children }: { children: ReactNode }) => {
   );
 
 };
+
+export default HouProvider;

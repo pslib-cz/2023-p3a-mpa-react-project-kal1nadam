@@ -1,0 +1,56 @@
+/* Fridge.css */
+
+.fridge-container {
+  position: fixed;  /* Fixed position relative to the viewport */
+  left: 50%;        /* Center horizontally */
+  bottom: 20px;     /* Position it above the viewport's bottom */
+  transform: translateX(-50%); /* Offset to truly center it */
+  z-index: 100;     /* Ensure it's above page content but below the modal */
+}
+
+.fridge-button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Stylish green button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; /* Indicates this is clickable */
+}
+
+.modal {
+  position: fixed;
+  top: 0;           /* Cover the entire viewport */
+  left: 0;
+  width: 100%;      /* Full width */
+  height: 100%;     /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Dim the background */
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  z-index: 1000;    /* Really high z-index to make sure it covers everything else */
+}
+
+.modal-content {
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white; /* Modal content background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for 3D effect */
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 5em;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  height: 15px;
+  width: 15px;
+  right: 3px;
+  cursor: pointer;
+  font-size: 24px; /* Large enough for easy interaction */
+  color:black;
+  transform: translateY(-100%); /* Offset to truly center it */
+}
