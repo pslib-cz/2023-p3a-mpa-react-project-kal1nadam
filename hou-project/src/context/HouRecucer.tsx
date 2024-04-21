@@ -12,7 +12,7 @@ function houReducer(state: Hou, action: HouAction): Hou {
       case HouActionType.HEALTH_CHANGE:
         return {
           ...state,
-          health: 100,
+          health: Math.min(state.health + action.payload.amount, 100),
         };
       case HouActionType.HAPPINESS_CHANGE:
         return {

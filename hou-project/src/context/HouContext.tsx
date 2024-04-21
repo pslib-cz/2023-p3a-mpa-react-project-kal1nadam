@@ -14,7 +14,7 @@ export enum HouActionType {
 
 export type HouAction =
   | { type: HouActionType.HUNGER_CHANGE; payload: {amount: number}}
-  | { type: HouActionType.HEALTH_CHANGE}
+  | { type: HouActionType.HEALTH_CHANGE; payload: {amount: number}}
   | { type: HouActionType.HAPPINESS_CHANGE; payload: {amount: number} }
   | { type: HouActionType.ENERGY_CHANGE; payload: {amount: number}}
   | { type: HouActionType.DECREASE_STATS_BASED_ON_TIME; payload: {hoursElapsed: number}}
