@@ -4,6 +4,8 @@ export interface Hou {
     hunger: number;
     happiness: number;
     lastUpdate: number;
+    isSleeping: boolean;
+    lastSleepTime: number | null;
   }
   
   

@@ -1,4 +1,3 @@
-import React from 'react';
 import './styles/StatBar.css'; // Import the CSS for styling
 
 //props

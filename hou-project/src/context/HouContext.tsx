@@ -1,5 +1,5 @@
-import React, { createContext, ReactNode, useContext, useDeferredValue, useEffect, useReducer, useState } from 'react';
-import { Food, Hou } from '../types';
+import React, { createContext, ReactNode, useContext, useEffect, useReducer } from 'react';
+import { Hou } from '../types/index.tsx';
 import houReducer from './HouRecucer';
 
 //create enum for the actions

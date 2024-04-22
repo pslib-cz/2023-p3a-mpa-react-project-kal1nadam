@@ -1,5 +1,5 @@
 // src/App.tsx
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Kitchen from './components/Kitchen';
 import Bathroom from './components/Bathroom';
 import Playroom from './components/Playroom';
