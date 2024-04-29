@@ -3,18 +3,29 @@ import Stats from "./Stats";
 import MemoryGame from './minigames/MemoryGame';
 import Hou from '../components/Hou';
 import NavigationButtons from './NavigationButtons';
+import { HouActionType, useHou } from '../context/HouContext';
 
 const Playroom = () => {
     const [gameStarted, setGameStarted] = useState<boolean>(false);
+
+    const {dispatch} = useHou();
+
+    const handleGameComplete = () => {
+      setGameStarted(false);
+      dispatch({ type: HouActionType.HAPPINESS_CHANGE, payload: { amount: 30 } });
+    };
+
+    const handleGameExit = () => {
+      setGameStarted(false); 
+    }
 
     return (
       
         <div className="room-container">
           {!gameStarted && (
             <>
-              <div className="room-navigation">
               <NavigationButtons />
-              </div>
+
               <div className="stats-container">
                 <Stats />
               </div>
@@ -29,7 +40,7 @@ const Playroom = () => {
             </div>
             </>
           )}
-          {gameStarted && <MemoryGame />}
+          {gameStarted && <MemoryGame onGameComplete={handleGameComplete} onGameExit={handleGameExit}/>}
             
         </div>
     );
