@@ -1,5 +1,7 @@
 import Stats from "./Stats";
 import {HouActionType, useHou } from "../context/HouContext";
+import Hou from '../components/Hou';
+import NavigationButtons from "./NavigationButtons";
 
 const Bedroom = () => {
   const {state, dispatch} = useHou();
@@ -11,11 +13,9 @@ const Bedroom = () => {
 
 
   return (
+    <>
     <div className={`room-container ${state.isSleeping ? 'dim' : ''}`}>
-      <div className="room-navigation">
-        {/* Assuming NavigationButtons already styled and positioned on the sides */}
-        {/* <NavigationButtons /> */}
-      </div>
+
       <div className="stats-container">
         <Stats />
       </div>
@@ -26,7 +26,12 @@ const Bedroom = () => {
           <button onClick={toggleSleep}>{state.isSleeping ? 'Wake up' : 'Sleep'}</button>
         </div>
       </div>
+      
     </div>
+    
+    <Hou />
+    <NavigationButtons />
+    </>
   );
 };
 

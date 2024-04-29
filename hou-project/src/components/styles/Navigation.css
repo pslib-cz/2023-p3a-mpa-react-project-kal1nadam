@@ -1,19 +1,12 @@
-.navigation-button {
-    position: fixed; /* Fix the position relative to the viewport */
-    top: 50%; /* Start at the middle of the page vertically */
-    transform: translateY(-50%); /* Adjust to exactly center vertically */
-    z-index: 100; /* Ensure it's above other content */
-  }
-  
-  .navigation-button.left {
+.navigation-button.left {
     left: 1rem; /* Align to the left side */
-  }
+}
   
-  .navigation-button.right {
+.navigation-button.right {
     right: 1rem; /* Align to the right side */
-  }
+}
   
-  .navigation-button {
+.navigation-button {
     background-color: #f0f0f0; /* Light grey background */
     color: black;
     border: none; /* Remove border */
@@ -21,5 +14,9 @@
     padding: 10px 20px; /* Padding inside the buttons */
     cursor: pointer; /* Change cursor on hover */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Add subtle shadow */
-  }
+    position: fixed; /* Fix the position relative to the viewport */
+    top: 50%; /* Start at the middle of the page vertically */
+    transform: translateY(-50%); /* Adjust to exactly center vertically */
+    z-index: 100; /* Ensure it's above other content */
+}
   

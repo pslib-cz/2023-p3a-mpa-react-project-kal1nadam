@@ -23,6 +23,7 @@
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    z-index: 10;
   }
   
   .room-navigation button {
@@ -40,12 +41,12 @@
 
   .dim {
     background-color: rgba(0, 0, 0, 0.7); /* Dim the room */
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 500; /* High enough to cover the content */
+    z-index: 1000; /* High enough to cover the content */
 }
 
   

@@ -2,6 +2,8 @@ import { HouActionType, useHou } from "../context/HouContext";
 import Shower from "./Shower";
 import Stats from "./Stats";
 import './styles/RoomLayout.css';
+import Hou from '../components/Hou';
+import NavigationButtons from "./NavigationButtons";
 
 const Bathroom = () => {
   const {dispatch} = useHou();
@@ -13,7 +15,7 @@ const Bathroom = () => {
   return (
     <div className="room-container">
       
-      <div className="room-navigation"/>
+      <NavigationButtons />
        
       <div className="stats-container">
         <Stats />
@@ -22,6 +24,7 @@ const Bathroom = () => {
       <div className="room-content">
         <h2 className="room-title">Bathroom</h2>
         <p className="room-description">Wash your Hou</p>
+        <Hou />
         <div className="bottom-options">
         <Shower onShower={increaseHealth} />
         </div>

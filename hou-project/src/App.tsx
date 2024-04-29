@@ -4,14 +4,13 @@ import Kitchen from './components/Kitchen';
 import Bathroom from './components/Bathroom';
 import Playroom from './components/Playroom';
 import Bedroom from './components/Bedroom';
-import NavigationButtons from './components/NavigationButtons';
-import Hou from './components/Hou';
+
+const basename = process.env.NODE_ENV === 'production' ? new URL(process.env.PUBLIC_URL || 'https://pslib-cz.github.io/2023-p3a-mpa-react-project-kal1nadam/').pathname : '2023-p3a-mpa-react-project-kal1nadam/';
 
 function App() {
   return (
-    <Router>
+    <Router basename={basename}>
       <div>
-        <NavigationButtons />
         <Routes>
           <Route path="/kitchen" element={<Kitchen />} />
           <Route path="/bathroom" element={<Bathroom />} />
@@ -19,8 +18,6 @@ function App() {
           <Route path="/bedroom" element={<Bedroom />} />
           <Route path="/" element={<Navigate replace to="/bedroom" />} /> {/* Redirect from base URL to /bedroom */}
         </Routes>
-
-        <Hou />
 
       </div>
     </Router>
