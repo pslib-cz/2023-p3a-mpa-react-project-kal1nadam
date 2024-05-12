@@ -11,7 +11,6 @@ const Bedroom = () => {
 
   const toggleSleep = () => {
     dispatch({ type: HouActionType.TOGGLE_SLEEP, payload: { isSleeping: !state.isSleeping} });
-    localStorage.setItem('houSleeping', JSON.stringify({ sleeping: !state.isSleeping, timestamp: Date.now() }));
   };
 
 

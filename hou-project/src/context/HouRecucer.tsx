@@ -20,6 +20,7 @@ function houReducer(state: Hou, action: HouAction): Hou {
           happiness: Math.min(state.happiness + action.payload.amount, 100),
         };
       case HouActionType.TOGGLE_SLEEP:
+        localStorage.setItem('houSleeping', JSON.stringify({ sleeping: !state.isSleeping, timestamp: Date.now() }));
         return { ...state, isSleeping: action.payload.isSleeping, lastSleepTime: Date.now() };
       case HouActionType.ENERGY_CHANGE:
         return {
