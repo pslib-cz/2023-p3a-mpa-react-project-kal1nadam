@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Stats from "./Stats";
 import MemoryGame from './minigames/MemoryGame';
 import Hou from '../components/Hou';
 import NavigationButtons from './NavigationButtons';
 import { HouActionType, useHou } from '../context/HouContext';
+import './styles/Rooms.css';
+
+import { GiGamepad } from "react-icons/gi";
 
 const Playroom = () => {
     const [gameStarted, setGameStarted] = useState<boolean>(false);
@@ -21,7 +24,7 @@ const Playroom = () => {
 
     return (
       
-        <div className="room-container">
+        <div className="room-container playroom">
           {!gameStarted && (
             <>
               <NavigationButtons />
@@ -34,7 +37,7 @@ const Playroom = () => {
                 <p className="room-description">Hou wants to be played</p>
                 <Hou />
                 <div className="bottom-options">
-                  <button onClick={() => setGameStarted(true)}>Start Memory Game</button>
+                  <button className='playGame' onClick={() => setGameStarted(true)}><GiGamepad/></button>
                 </div>
 
             </div>

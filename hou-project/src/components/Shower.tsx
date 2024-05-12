@@ -1,6 +1,8 @@
 import React from 'react';
 import './styles/Shower.css'; 
 
+import { FaShower } from "react-icons/fa6";
+
 const Shower: React.FC<{ onShower: () => void }> = ({ onShower }) => {
   const handleDragOver = (event: React.DragEvent) => {
     event.preventDefault(); // allow dropping
@@ -13,7 +15,7 @@ const Shower: React.FC<{ onShower: () => void }> = ({ onShower }) => {
       draggable
       onDrag={handleDragOver} // Calls onShower every time the element is dragged over the Hou
     >
-      Shower
+      <FaShower/>
     </div>
   );
 };

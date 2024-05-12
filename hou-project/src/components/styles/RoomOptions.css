@@ -9,3 +9,14 @@
     gap: 1em;
     justify-content: center;
   }
+
+  .toogleSleep{
+    font-size: 1.2rem;
+  }
+
+  .playGame{
+    width: 100%;
+    padding: 5px 15px;
+    font-size: 2rem;
+    margin: 0;
+  }

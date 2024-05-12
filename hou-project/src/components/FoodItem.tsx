@@ -1,5 +1,6 @@
 import React from 'react';
-import { Food } from '../types';
+import { Food, foodIcons } from '../types';
+import './styles/FoodItem.css';
 
 type FoodItemProps = {
     food: Food;
@@ -13,8 +14,8 @@ const FoodItem: React.FC<FoodItemProps> = ({ food }) => {
   if (!food) return null;
 
   return (
-    <div draggable onDragStart={handleDragStart}>
-      {food.name}
+    <div className='item' draggable onDragStart={handleDragStart}>
+      {foodIcons[food.name]}
     </div>
   );
 };

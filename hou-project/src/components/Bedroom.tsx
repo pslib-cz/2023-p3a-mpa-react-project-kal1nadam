@@ -1,7 +1,10 @@
 import Stats from "./Stats";
 import {HouActionType, useHou } from "../context/HouContext";
 import Hou from '../components/Hou';
+import './styles/Rooms.css';
 import NavigationButtons from "./NavigationButtons";
+
+import { IoMdSunny, IoIosMoon } from "react-icons/io";
 
 const Bedroom = () => {
   const {state, dispatch} = useHou();
@@ -14,7 +17,7 @@ const Bedroom = () => {
 
   return (
     <>
-    <div className={`room-container ${state.isSleeping ? 'dim' : ''}`}>
+    <div className={`bedroom room-container ${state.isSleeping ? 'dim' : ''}`}>
 
       <div className="stats-container">
         <Stats />
@@ -23,7 +26,7 @@ const Bedroom = () => {
         <h2 className="room-title">Bedroom</h2>
         <p className="room-description">Where the Hou sleeps</p>
         <div className="bottom-options">
-          <button onClick={toggleSleep}>{state.isSleeping ? 'Wake up' : 'Sleep'}</button>
+          <button className="toogleSleep" onClick={toggleSleep}>{state.isSleeping ? <IoMdSunny/> : <IoIosMoon/>}</button>
         </div>
       </div>
       

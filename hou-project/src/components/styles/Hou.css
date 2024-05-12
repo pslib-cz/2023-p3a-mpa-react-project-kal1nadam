@@ -1,15 +1,17 @@
 .hou {
-    width: 150px;  /* Diameter of the circle */
-    height: 150px; /* Diameter of the circle */
-    background-color: #bc9044; /* Golden color, feel free to change */
-    border-radius: 50%; /* This makes the square a circle */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Ensure it's perfectly centered */
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.5); /* Optional: Adds some depth with shadow */
-  }
+  width: 220px;  
+  height: 220px; 
+  background-image: url('/hou.png');
+  background-size: cover; /* Cover the entire area of the circle */
+  background-position: center; /* Center the image within the circle */
+  border-radius: 50%; /* makes the div a circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Ensure it's perfectly centered */
+}
+  
   

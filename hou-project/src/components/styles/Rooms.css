@@ -1,0 +1,20 @@
+.kitchen {
+    background-color: #d8f3dc; /* Light green */
+    color: black;
+}
+
+.bedroom {
+    background-color: #ade8f4; /* Calm blue */
+    color: black;
+
+}
+
+.playroom {
+    background-color: #fff3cd; /* Vibrant yellow */
+    color: black;
+}
+
+.bathroom {
+    background-color: #a0c4ff; /* Clean aqua */
+    color: black;
+}

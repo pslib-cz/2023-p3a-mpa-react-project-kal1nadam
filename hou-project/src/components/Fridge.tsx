@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './styles/Fridge.css'; 
-import { SelectFoodFunction } from '../types';
+import { foodIcons, SelectFoodFunction } from '../types';
+
+import { RiFridgeFill } from "react-icons/ri";
+
+
 
 const foodItems = [
   { id: 1, name: 'Apple', hungerValue: 10 },
@@ -17,7 +21,7 @@ const Fridge: React.FC<FridgeProps> = ({ onSelectFood }) => {
 
   return (
     <div>
-      <button className="fridge-button" onClick={() => setIsOpen(true)}>Fridge</button>
+      <button className="fridge-button" onClick={() => setIsOpen(true)}><RiFridgeFill/></button>
       {isOpen && (
         <div className="modal">
           <div className="modal-content">
@@ -27,7 +31,7 @@ const Fridge: React.FC<FridgeProps> = ({ onSelectFood }) => {
                 onSelectFood(food);
                 setIsOpen(false);
               }}>
-                {food.name}
+                {foodIcons[food.name]}
               </button>
             ))}
           </div>

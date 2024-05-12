@@ -1,6 +1,6 @@
 .shower {
-    width: 100px;  
-    height: 100px; 
+    width: 70px;  
+    height: 70px; 
     background-color: #add8e6; 
     color: #fff;
     display: flex;
@@ -9,4 +9,6 @@
     cursor: grab; /* Cursor indicates it's draggable */
     border: 2px solid #0077cc; 
     border-radius: 8px;
+    font-size: 2rem;
+    color: black;
   }

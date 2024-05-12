@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './styles/Navigation.css';
 
+import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi";
+
 type RoomPath = '/kitchen' | '/bathroom' | '/playroom' | '/bedroom';
 const roomOrder: RoomPath[] = ['/kitchen', '/bathroom', '/playroom', '/bedroom'];
 
@@ -17,8 +19,8 @@ const NavigationButtons: React.FC = () => {
 
   return (
     <div>
-      <button className="navigation-button left" onClick={() => navigateToRoom(-1)}>Left</button>
-      <button className="navigation-button right" onClick={() => navigateToRoom(1)}>Right</button>
+      <button className="navigation-button left" onClick={() => navigateToRoom(-1)}><BiSolidLeftArrow/></button>
+      <button className="navigation-button right" onClick={() => navigateToRoom(1)}><BiSolidRightArrow/></button>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { HouActionType, useHou } from "../context/HouContext";
 import Shower from "./Shower";
 import Stats from "./Stats";
 import './styles/RoomLayout.css';
+import './styles/Rooms.css';
 import Hou from '../components/Hou';
 import NavigationButtons from "./NavigationButtons";
 
@@ -13,7 +14,7 @@ const Bathroom = () => {
   };
 
   return (
-    <div className="room-container">
+    <div className="room-container bathroom">
       
       <NavigationButtons />
        

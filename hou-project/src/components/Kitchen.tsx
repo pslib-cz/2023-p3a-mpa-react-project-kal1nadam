@@ -4,6 +4,7 @@ import Fridge from "./Fridge";
 import Stats from "./Stats";
 import { Food } from "../types";
 import "./styles/RoomOptions.css";
+import "./styles/Rooms.css";
 import Hou from '../components/Hou';
 import NavigationButtons from "./NavigationButtons";
 
@@ -12,7 +13,7 @@ const Kitchen = () => {
   const [selectedFood, setSelectedFood] = useState<Food | null>(null);
 
   return (
-    <div className="room-container">
+    <div className="room-container kitchen">
 
       <NavigationButtons />
 
