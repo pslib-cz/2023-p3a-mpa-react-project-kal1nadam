@@ -1,8 +1,10 @@
-# Název mého projektu, programu, hry...
+# HOU
 
 ## Téma
 
-Tady bude krátký a úderný popis o účelu, významu, funkcionalitě...
+Projekt bude remake klasicke mobilni hry Pou - podstatou bude se starat o virtualniho mazlicka.
+Drive znamo jako Tamagotchi.
+
 
 ## Odkazy pro vývoj
 

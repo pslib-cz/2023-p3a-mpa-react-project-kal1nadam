@@ -1,0 +1,17 @@
+.hou {
+  width: 220px;  
+  height: 220px; 
+  background-image: url('/hou.png');
+  background-size: cover; /* Cover the entire area of the circle */
+  background-position: center; /* Center the image within the circle */
+  border-radius: 50%; /* makes the div a circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Ensure it's perfectly centered */
+}
+  
+  

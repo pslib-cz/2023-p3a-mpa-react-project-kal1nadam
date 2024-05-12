@@ -1,0 +1,41 @@
+
+.stat-bar {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+
+.stat-bar label {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+.bar-outer {
+    width: 100%; /* Set a fixed width */
+    height: 100%; /* Equal height to maintain square shape */
+    background-color: #eee;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column-reverse; /* Make the fill grow from bottom to top */
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+}
+  
+.bar-inner {
+    width: 100%; /* Take up full width of the container */
+    position: absolute;
+    /* Height is controlled dynamically via inline styles */
+}
+
+.icon {
+    position: relative;
+    z-index: 2; /* Higher than any sibling element */
+    color: #000000; /* White color for visibility, adjust as needed */
+    width: 30px; /* Size of the icon */
+    height: 30px; /* Size of the icon */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -110%); /* Adjust based on exact alignment needs */
+  }
